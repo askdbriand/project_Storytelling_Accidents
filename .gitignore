@@ -1,4 +1,4 @@
 data/raw/
 __pycache__/
 .venv/
-.DS_Store
+.DS_Storedata/accidents_clean.csv

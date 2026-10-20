@@ -1,0 +1,18 @@
+Contrôle,Valeur
+Lignes au départ,327628.0
+Doublons supprimés (Num_Acc + année),0.0
+Vitesses aberrantes (mises à vide),966.0
+Dates invalides,0.0
+Heures invalides,0.0
+GPS invalides en métropole (%),0.0
+Accidents sans usager,0.0
+Incohérences (tués > usagers),0.0
+Manquant : lum (%),0.0
+Manquant : atm (%),0.01
+Manquant : catr (%),0.0
+Manquant : vma (%),2.45
+Manquant : surf (%),0.04
+Manquant : heure (%),0.0
+Manquant : lat (%),5.45
+Manquant : long (%),5.45
+Lignes à la fin,327628.0
