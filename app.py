@@ -134,7 +134,7 @@ with tab_guide:
 
 
 st.info(
-    f"**Hook :** outside built-up areas, {tz['Hors agglomération']:.1f} %  accidents are fatal, "
+    f"**Hook:** outside built-up areas, {tz['Hors agglomération']:.1f} % of accidents are fatal, "
     f"compared to {tz['En agglomération']:.1f} % in built-up areas. There are fewer accidents on these roads, "
     "but they are much more serious. This application identifies where and under what conditions the severity is greatest."
 )
@@ -240,7 +240,7 @@ if g6.empty:
     st.warning("Not enough accidents for this chart with these filters.")
 else:
     pire = g6.loc[g6["taux"].idxmax()]
-    st.markdown(f"**The most serious case: : {pire['zone']}, {pire['moment'].lower()} ({pire['taux']:.1f} % of fatal accidents).**")
+    st.markdown(f"**The most serious case:  {pire['zone']}, {pire['moment'].lower()} ({pire['taux']:.1f} % of fatal accidents).**")
     fig6 = px.bar(g6, x="moment", y="taux", color="zone", barmode="group",
                   category_orders={"moment": ["Jour", "Crépuscule ou aube", "Nuit"]},
                   hover_data={"accidents": True, "taux": ":.1f"},
@@ -359,28 +359,28 @@ else:
         st.plotly_chart(fig3, on_select="rerun", selection_mode="points", key="carte_dep")
     except TypeError:  # ancienne version de Streamlit : pas de clic possible
         st.plotly_chart(fig3)
-    st.caption("Description: Map of metropolitan France. Each department is colored according to the proportion of accidents."
-               "fatalities (yellow = lower, dark red = higher). Hover over a department to see its rate. "
-               "Once a department is selected, each accident is displayed: red = at least one fatality, blue = no fatalities. "
-               "Fatal accidents are all displayed; non-fatal accidents are limited to 4,000 sample. "
-               "Overseas territories not represented.")
+    st.caption("Description: map of metropolitan France. Each department is colored according to its share of fatal accidents "
+               "(yellow = lower, dark red = higher). Hover over a department to see its rate. "
+               "Once a department is selected, each accident is displayed: red = at least one person killed, blue = nobody killed. "
+               "All fatal accidents are displayed; non-fatal accidents are limited to a sample of 4,000. "
+               "Overseas territories are not represented.")
 
     # 5) Détails du département choisi
     if dep_choisi:
-        st.markdown(f"#### Département {dep_choisi} : {noms.get(dep_choisi, '')}")
+        st.markdown(f"#### Department {dep_choisi}: {noms.get(dep_choisi, '')}")
         dd = dm[dm["dep"] == dep_choisi]
         k1, k2, k3 = st.columns(3)
         k1.metric("Accidents", fmt(len(dd)))
-        k2.metric("Personnes tuées", fmt(dd["nb_tues"].sum()))
+        k2.metric("People killed", fmt(dd["nb_tues"].sum()))
         t_dep = dd["mortel"].mean() * 100
-        k3.metric("Accidents mortels", f"{t_dep:.1f} %", f"{t_dep - taux:+.1f} pt vs la sélection", delta_color="inverse")
+        k3.metric("Fatal accidents", f"{t_dep:.1f} %", f"{t_dep - taux:+.1f} pt vs the selection", delta_color="inverse")
 
-        # tableau : en agglomération vs hors agglomération
-        par_zone = dd.groupby("zone").agg(Accidents=("Num_Acc", "count"), Tués=("nb_tues", "sum"),
+        # table: built-up vs outside built-up areas
+        par_zone = dd.groupby("zone").agg(Accidents=("Num_Acc", "count"), Killed=("nb_tues", "sum"),
                                           graves=("nb_graves", "sum"), taux=("mortel", "mean")).reset_index()
         par_zone["taux"] = (par_zone["taux"] * 100).round(1)
-        par_zone = par_zone.rename(columns={"zone": "Zone", "graves": "Blessés graves (hospitalisés)",
-                                            "taux": "Accidents mortels (%)"})
+        par_zone = par_zone.rename(columns={"zone": "Area", "graves": "Seriously injured (hospitalized)",
+                                            "taux": "Fatal accidents (%)"})
         st.dataframe(par_zone, hide_index=True)
 
 # VISUAL 6 : CLASSEMENT 
@@ -395,7 +395,7 @@ if not g3.empty:
                   labels={"taux": "Fatal accidents (%)", "lib": "Department", "accidents": "Accidents", "tues": "Killed"})
     fig4.update_yaxes(type="category")
     st.plotly_chart(fig4)
-    st.caption("Description: The 10 metropolitan departments with the highest proportion of fatal accidents"
+    st.caption("Description: the 10 metropolitan departments with the highest share of fatal accidents "
                "(at least 100 accidents within the selection).")
 
 # VISUAL 7: CORRELATIONS 

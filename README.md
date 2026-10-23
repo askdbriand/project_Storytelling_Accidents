@@ -5,7 +5,7 @@ Individual Streamlit project (Data Storytelling), EFREI Paris, group Ing2_DAI.
 **Course:** Data Analysis & Visualization | **Professor:** Mano Joseph Mathew  
 
 **Deployed app:** https://road-accidents-france.streamlit.app/  
-**Demo video:** [assets/demo.mov](assets/demo.mov)
+
 
 ## 1. Question and audience
 - **Question**: where, and under which conditions, is an injury accident most likely to be fatal?
@@ -107,7 +107,6 @@ utils/inspect_cols.py   column comparison between years
 utils/check1.py         spot checks
 utils/check2.py         GPS coordinates check
 assets/efrei_logo.jpg   EFREI Paris logo
-assets/demo.mov.        
 data/                   data/ processed data used by the app (raw files downloaded by utils/io.py, not versioned).
 requirements.txt
 ```
