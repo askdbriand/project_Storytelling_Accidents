@@ -17,10 +17,10 @@ Individual Streamlit project (Data Storytelling), EFREI Paris, group Ing2_DAI.
 ## 2. Data
 | Item | Detail |
 |---|---|
-| Dataset | Bases de données annuelles des accidents corporels de la circulation routière (BAAC), annual databases of road injury accidents, years 2005 to 2024 |
+| Dataset | Annual databases of road traffic injury accidents (BAAC), years 2005 to 2024 |
 | Portal | data.gouv.fr: https://www.data.gouv.fr/datasets/53698f4ca3a729239d2036df/ |
-| Producer | Ministère de l'intérieur (data.gouv.fr organization) |
-| Licence | Licence Ouverte / Open Licence (Etalab): https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf |
+| Producer | Ministry of the Interior (data.gouv.fr organization) |
+| Licence | Open Licence (Etalab): https://www.etalab.gouv.fr/wp-content/uploads/2014/05/Licence_Ouverte.pdf |
 | Created / last updated | 8 July 2013 / 29 December 2025 (annual frequency) |
 | Period used | 2019 to 2024 (6 years) |
 | Volume | 327,628 injury accidents (309,756 in mainland France) |
@@ -112,8 +112,8 @@ requirements.txt
 ```
 
 ## 9. Credits and licences
-- Accident data: Ministère de l'intérieur, BAAC, data.gouv.fr, Licence Ouverte / Open Licence, dataset last updated on 29 December 2025.
-- Department boundaries: IGN Admin Express COG (2018 edition) and INSEE, via the GitHub repository gregoiredavid/france-geojson, Licence Ouverte 2.0.
+- Accident data: Ministry of the Interior, BAAC, data.gouv.fr, Open Licence (Etalab), dataset last updated on 29 December 2025.
+- Department boundaries: IGN Admin Express COG (2018 edition) and INSEE, via the GitHub repository gregoiredavid/france-geojson, Open Licence 2.0.
 - Base maps: OpenStreetMap contributors.
 - Libraries: Streamlit, pandas, NumPy, Plotly, Requests.
 - EFREI Paris logo: property of EFREI Paris, used for identification only.
